@@ -3,7 +3,7 @@ function timeUpdate(){
     let dateTime = new Date();
     let hours = String(dateTime.getHours()).padStart(2, "0");
     let minutes = String(dateTime.getMinutes()).padStart(2, "0");
-    let currentDate = document.querySelector(".dateUpdate");
+    let currentDate = document.querySelector("#dateUpdate");
     
     let days = [
       "Sunday",
@@ -27,13 +27,16 @@ function timeUpdate(){
       console.log(response);
     
       let temprature = document.querySelector("#new-temprature");
-      temprature.innerHTML = Math.round(response.data.main.temp);
       let newCity = document.querySelector("#city-name");
-      newCity.innerHTML = response.data.name;
       let currentHimudity = document.querySelector("#humud");
-      currentHimudity.innerHTML = Math.round(response.data.main.humidity);
       let currentWind = document.querySelector("#win");
+      let detailinfo = document.querySelector("#moreInfo")
+      
+      temprature.innerHTML = Math.round(response.data.main.temp);
+      newCity.innerHTML = response.data.name;
+      currentHimudity.innerHTML = Math.round(response.data.main.humidity);
       currentWind.innerHTML = Math.round(response.data.wind.speed);
+      detailinfo.innerHTML = response.data.weather[0].description;
     }
     
     function weatherNew(event){
