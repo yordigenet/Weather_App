@@ -20,11 +20,11 @@
       <div class="card-body">
         <form id="city-form">
           <div class="row">
-            <div class="col-6">
+            <div class="col-9">
               <input
-                type="text"
+                type="search"
                 placeholder="Enter your City name"
-                class="cityName"
+                class="form-control cityName"
                 id="city-input"
                 autofocus="on"
               />
@@ -36,89 +36,39 @@
                 value="Search"
               />
             </div>
-            <div class="col-3">
-              <button
-                type="submit"
-                class="btn btn-success w-100"
-                id="current-loction"
-              >
-                Current
-              </button>
-            </div>
           </div>
         </form>
         <div class="container additional2">
-          <ul>
-            <h1 class="main" id="city-name">Addis Abeba</h1>
-            <li id="moreInfo"></li>
-            <li id="dateUpdate"></li>
-          </ul>
           <div class="row newPadding">
             <div class="col-6">
-              <p class="main">
-                <img src="src/partly_cloudy.png" alt="partialy cloud" /><span
-                  id="new-temprature"
-                  >17</span
-                >
-                <sup> <a href="#" id="to-celsius">°C</a></sup>
-              </p>
+              <ul>
+                <h1 class="main" id="city-name">Addis Abeba</h1>
+                <li>
+                  <span id="dateUpdate"></span>, <span id="moreInfo"></span>
+                </li>
+                <li>
+                  <p>
+                    Humudity <span id="humud">70</span>%, Wind
+                    <span id="win">12</span>km/h
+                  </p>
+                </li>
+              </ul>
             </div>
 
-            <div class="col-6">
-              <p>
-                Humudity <span id="humud">70</span>% <br />
-                Wind <span id="win">12</span>km/h
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="container additional">
-          <div class="row">
-            <div class="col-2">
-              <p>
-                Mon <br /><img src="src/rainy.png" alt="havyrain" /><br />12<sup
-                  >°C|°F</sup
-                >
-              </p>
-            </div>
-            <div class="col-2">
-              <p>
-                Tue <br /><img src="src/havyrain.png" alt="havyrain" />
-                <br />17<sup>°C|°F</sup>
-              </p>
-            </div>
-            <div class="col-2">
-              <p>
-                Wed <br />
-                <img src="src/havyrain.png" alt="havyrain" /> <br />20<sup
-                  >°C|°F</sup
-                >
-              </p>
-            </div>
-            <div class="col-2">
-              <p>
-                Thu <br /><img src="src/rainy.png" alt="havyrain" /><br />15<sup
-                  >°C|°F</sup
-                >
-              </p>
-            </div>
-            <div class="col-2">
-              <p>
-                Fri <br /><img src="src/havyrain.png" alt="havyrain" />
-                <br />11<sup>°C|°F</sup>
-              </p>
-            </div>
-            <div class="col-2">
-              <p>
-                Sat <br /><img src="src/rainy.png" alt="havyrain" />
-                <br />14<sup>°C|°F</sup>
-              </p>
+            <div class="col-lg-6 col-md-6 col-sm-8">
+              <div class="textplace">
+                <p class="main">
+                  <img src="src/partly_cloudy.png" alt="partialy cloud" /><span
+                    id="new-temprature"
+                    >17</span
+                  >
+                  <sup> <a href="#" id="to-celsius">°C</a></sup>
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="containerNew">
       <small
         ><a
           href="https://github.com/yordigenet/Plus-Weather_App/tree/main"
