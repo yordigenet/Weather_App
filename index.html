@@ -42,42 +42,56 @@
           <div class="row newPadding">
             <div class="col-6">
               <ul>
-                <h1 class="main" id="city-name">Addis Abeba</h1>
+                <h1 class="main" id="city-name"></h1>
                 <li>
-                  <span id="dateUpdate"></span>, <span id="moreInfo"></span>
+                  <span id="dateUpdate" class="text-style"></span>,
+                  <span id="moreInfo" class="text-style"></span>
                 </li>
                 <li>
-                  <p>
-                    Humudity <span id="humud">70</span>%, Wind
-                    <span id="win">12</span>km/h
+                  <p class="text-style">
+                    Humudity <span id="humud"></span>%, Wind
+                    <span id="win"></span>km/h
                   </p>
                 </li>
               </ul>
             </div>
 
             <div class="col-lg-6 col-md-6 col-sm-8">
-              <div class="textplace">
-                <p class="main">
-                  <img src="src/partly_cloudy.png" alt="partialy cloud" /><span
-                    id="new-temprature"
-                    >17</span
-                  >
-                  <sup> <a href="#" id="to-celsius">°C</a></sup>
-                </p>
+              <div class="d-flex main justify-content-end">
+                <img src="src/partly_cloudy.png" alt="partialy cloud" />
+                <div id="new-temprature">17</div>
+                <span
+                  ><a href="#" id="to-celsius">°C</a> |
+                  <a href="#" id="to-fahrenite">°F</a>
+                </span>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <small
-        ><a
-          href="https://github.com/yordigenet/Plus-Weather_App/tree/main"
-          class="bottom_link"
-          target="_blank"
-          >Open-source</a
-        >
-        Coded by Yordanos Girma
-      </small>
+      <div class="bottom_link">
+        <p class="text-style">
+          <small
+            >This project was coded by
+            <a
+              href="https://www.shecodes.io/graduates/83359-yordanos-girma"
+              target="_blank"
+            >
+              Yordanos Girma
+            </a>
+            and is open-sourced on
+            <a href="https://github.com/yordigenet/Weather_App" target="_blank"
+              >GitHub</a
+            >
+            and hosted on
+            <a
+              href="https://github.com/yordigenet/Plus-Weather_App/tree/main"
+              target="_blank"
+              >Netlify</a
+            >
+          </small>
+        </p>
+      </div>
     </div>
     <script src="src/index.js"></script>
   </body>
