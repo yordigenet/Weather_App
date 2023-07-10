@@ -48,6 +48,8 @@ function timeUpdate(){
     axios.get(`${apiUrl}&appid=${apiKey}`).then(showWeather);
     }
     
+//weatherNew(AddisAbaba);
+
     let weatherUpdate = document.querySelector("#city-form");
     weatherUpdate.addEventListener("submit", weatherNew);
     
