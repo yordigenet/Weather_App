@@ -31,12 +31,14 @@ function timeUpdate(){
       let currentHimudity = document.querySelector("#humud");
       let currentWind = document.querySelector("#win");
       let detailinfo = document.querySelector("#moreInfo")
+      let icon = document.querySelector("#icon")
       
       temprature.innerHTML = Math.round(response.data.main.temp);
       newCity.innerHTML = response.data.name;
       currentHimudity.innerHTML = Math.round(response.data.main.humidity);
       currentWind.innerHTML = Math.round(response.data.wind.speed);
       detailinfo.innerHTML = response.data.weather[0].description;
+      icon.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
     }
     
     function weatherNew(event){
@@ -63,8 +65,7 @@ function timeUpdate(){
     
       function getGeoLocation(event) {
         event.preventDefault();
-        navigator.geolocation.getCurrentPosition(showLocation);
-        
+        navigator.geolocation.getCurrentPosition(showLocation); 
       }  
       
       let locationButton = document.querySelector("#current-loction");
