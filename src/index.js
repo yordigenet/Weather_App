@@ -17,57 +17,79 @@ function timeUpdate(){
     
     let day = days[dateTime.getDay()];
     currentDate.innerHTML = `${day} ${hours}:${minutes}`;
-    }
+  }
     
-    timeUpdate();
-    
-    //search engine
-    //weather display based on city searched
-    function showWeather(response) {
-      console.log(response);
-    
-      let temprature = document.querySelector("#new-temprature");
-      let newCity = document.querySelector("#city-name");
-      let currentHimudity = document.querySelector("#humud");
-      let currentWind = document.querySelector("#win");
-      let detailinfo = document.querySelector("#moreInfo")
-      let icon = document.querySelector("#icon")
-      
-      temprature.innerHTML = Math.round(response.data.main.temp);
-      newCity.innerHTML = response.data.name;
-      currentHimudity.innerHTML = Math.round(response.data.main.humidity);
-      currentWind.innerHTML = Math.round(response.data.wind.speed);
-      detailinfo.innerHTML = response.data.weather[0].description;
-      icon.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
-    }
-    
-    function weatherNew(event){
-      event.preventDefault(); 
-    let city = document.querySelector("#city-input").value;
-    
-    let apiKey = "bc5ca568ee2d7c71357ca430a3ff8705";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
-    axios.get(`${apiUrl}&appid=${apiKey}`).then(showWeather);
-    }
-    
-//weatherNew(AddisAbaba);
+timeUpdate();
 
-    let weatherUpdate = document.querySelector("#city-form");
-    weatherUpdate.addEventListener("submit", weatherNew);
-    
-    //weather display based on current location
-    function showLocation(position) {
-      let apiKey = "bc5ca568ee2d7c71357ca430a3ff8705";
-      let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
-      
-      axios.get(`${apiUrl}&appid=${apiKey}`).then(showWeather);
-      }
-    
-      function getGeoLocation(event) {
-        event.preventDefault();
-        navigator.geolocation.getCurrentPosition(showLocation); 
-      }  
-      
-      let locationButton = document.querySelector("#current-loction");
-      locationButton.addEventListener("click", getGeoLocation);
-      
+//search engine
+//weather display based on city searched
+
+function showWeather(response) {
+
+  let temprature = document.querySelector("#new-temprature");
+  let newCity = document.querySelector("#city-name");
+  let currentHimudity = document.querySelector("#humud");
+  let currentWind = document.querySelector("#win");
+  let detailinfo = document.querySelector("#moreInfo")
+  let icon = document.querySelector("#icon")
+  
+  celciusData = Math.round(response.data.main.temp);
+
+  temprature.innerHTML = Math.round(response.data.main.temp);
+  newCity.innerHTML = response.data.name;
+  currentHimudity.innerHTML = Math.round(response.data.main.humidity);
+  currentWind.innerHTML = Math.round(response.data.wind.speed);
+  detailinfo.innerHTML = response.data.weather[0].description;
+  icon.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+}
+
+
+function weatherNew(city){
+
+let apiKey = "bc5ca568ee2d7c71357ca430a3ff8705";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
+axios.get(`${apiUrl}&appid=${apiKey}`).then(showWeather);
+}
+
+function search(event){
+event.preventDefault();
+let city = document.querySelector("#city-input").value;
+weatherNew(city);
+}
+
+function tempratureInFahrenite(event){
+  event.preventDefault();
+
+  //handle the active class
+  celcius.classList.remove("active");
+  fahrenite.classList.add("active");
+
+  let fahreniteTemprature = (celciusData * 9)/5 + 32;
+  let temprature = document.querySelector("#new-temprature");
+  temprature.innerHTML = Math.round(fahreniteTemprature);
+}
+
+function tempratureInCelcius(event){
+  event.preventDefault();
+  
+  //handle the active class
+  fahrenite.classList.remove("active");
+  celcius.classList.add("active");
+  
+
+  let temprature = document.querySelector("#new-temprature");
+  temprature.innerHTML = celciusData;
+}
+
+let celciusData = null;
+
+let weatherUpdate = document.querySelector("#city-form");
+weatherUpdate.addEventListener("submit", search);
+
+let fahrenite = document.querySelector("#to-fahrenite");
+fahrenite.addEventListener("click", tempratureInFahrenite);
+
+let celcius = document.querySelector("#to-celcius");
+celcius.addEventListener("click", tempratureInCelcius);
+
+weatherNew("Addis Ababa");

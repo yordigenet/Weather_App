@@ -21,8 +21,11 @@ background-color: #e3f6f5;
     font-weight: 700;
     line-height: 1;
     margin-left: 10px;
-
   }
+
+.convertion{
+font-size: 20px;
+}
 
   .main {
     font-size: 30px;
@@ -93,5 +96,14 @@ background-color: #e3f6f5;
     height: 60px;
     margin: 0;
     padding: 0;
+  }
+
+  .main .active{
+    color: rgba(39,33,66,.4);
+    cursor: default;
+  }
+
+  .main .active.hover{
+    text-decoration: none;
   }
  
