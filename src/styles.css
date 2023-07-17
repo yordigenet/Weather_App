@@ -15,6 +15,11 @@ background-color: #e3f6f5;
     margin: 0;
     color: rgba(39,33,66,.4);
   }
+
+strong{
+color: #a0610f;
+  }
+
   #new-temprature {
     color: #212121;
     font-size: 60px;
@@ -105,5 +110,25 @@ font-size: 20px;
 
   .main .active.hover{
     text-decoration: none;
+  }
+
+  .weather-forcast{
+    margin-top: 20px;
+    text-align: center;
+    font-family: "Playfair", serif;
+    color: rgba(39,33,66,.4);
+  }
+
+  .weather-forcast-day{
+    font-size: 16px;
+  }
+
+  .weather-forcast-temprature{
+    font-size: 13px;
+    color: black;
+  }
+
+.weather-forcast-temprature-min{
+opacity: 0.5;
   }
  
