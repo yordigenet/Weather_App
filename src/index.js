@@ -20,6 +20,27 @@ function timeUpdate(){
   }
     
 timeUpdate();
+function diplayForcast(){
+  let forcastElement = document.querySelector("#forcast");
+  let forcastContent = `<div class="row">`;
+  let forcastDay = ["mon", "thu", "fri", "thu"]
+
+  forcastDay.forEach(function(day){
+    forcastContent = forcastContent + `
+    <div class="col-2">
+    <div class="weather-forcast-day">${day}</div>
+    <img src="src/havyrain.png" alt="" width="40px">
+    <div class="weather-forcast-temprature">
+      <span class="weather-forcast-temprature-max"> 12°</span>
+      <span class="weather-forcast-temprature-min"> 14°</span>
+      </div>
+    
+  </div>`;
+  });
+  forcastContent = forcastContent + `</div>`;
+  forcastElement.innerHTML = forcastContent
+  console.log(forcastContent);
+}
 
 //search engine
 //weather display based on city searched
@@ -93,3 +114,4 @@ let celcius = document.querySelector("#to-celcius");
 celcius.addEventListener("click", tempratureInCelcius);
 
 weatherNew("Addis Ababa");
+diplayForcast();
