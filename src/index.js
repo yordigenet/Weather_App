@@ -20,21 +20,41 @@ function timeUpdate(){
   }
     
 timeUpdate();
-function diplayForcast(){
+
+function arangeDate(days){
+  let newDate = new Date(days * 1000);
+  let day = newDate.getDay();
+  let dayys = [
+    "Sun",
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat"
+  ];
+
+  return dayys[day];
+}
+
+function diplayForcast(response){
+  
   let forcastElement = document.querySelector("#forcast");
   let forcastContent = `<div class="row">`;
-  let forcastDay = ["mon", "thu", "fri", "thu"]
+  let forcastDay = response.data.daily
 
-  forcastDay.forEach(function(day){
-    forcastContent = forcastContent + `
-    <div class="col-2">
-    <div class="weather-forcast-day">${day}</div>
-    <img src="src/havyrain.png" alt="" width="40px">
-    <div class="weather-forcast-temprature">
-      <span class="weather-forcast-temprature-max"> 12°</span>
-      <span class="weather-forcast-temprature-min"> 14°</span>
-      </div>
-  </div>`;
+  forcastDay.forEach(function(day, index){
+    if (index < 6){
+      forcastContent = forcastContent + `
+      <div class="col-2">
+      <div class="weather-forcast-day">${arangeDate(day.time)}</div>
+      <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.daily[0].condition.icon}.png" alt="" width="40px">
+      <div class="weather-forcast-temprature">
+        <span class="weather-forcast-temprature-max">${Math.round(day.temperature.maximum)}°</span>
+        <span class="weather-forcast-temprature-min">${Math.round(day.temperature.minimum)}°</span>
+        </div>
+      </div>`;
+    }
   });
   forcastContent = forcastContent + `</div>`;
   forcastElement.innerHTML = forcastContent
@@ -43,8 +63,15 @@ function diplayForcast(){
 //search engine
 //weather display based on city searched
 
+function forcastWeather(coordinates){
+ 
+  let apiKey = "9e83f4b20abcaf3tc8ob7e37014fe983";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}`;
+
+  axios.get(apiUrl).then(diplayForcast);
+}
+
 function showWeather(response) {
-  console.log(response);
 
   let temprature = document.querySelector("#new-temprature");
   let newCity = document.querySelector("#city-name");
@@ -60,9 +87,9 @@ function showWeather(response) {
   currentHimudity.innerHTML = Math.round(response.data.temperature.humidity);
   currentWind.innerHTML = Math.round(response.data.wind.speed);
   detailinfo.innerHTML = response.data.condition.description;
-  icon.setAttribute("src", `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}`);
+  icon.setAttribute("src", `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`);
+forcastWeather(response.data.coordinates);
 }
-
 
 function weatherNew(city){
 
@@ -73,6 +100,7 @@ axios.get(`${apiUrl}&key=${apiKey}`).then(showWeather);
 
 function search(event){
 event.preventDefault();
+
 let city = document.querySelector("#city-input").value;
 weatherNew(city);
 }

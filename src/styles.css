@@ -113,7 +113,7 @@ font-size: 20px;
   }
 
   .weather-forcast{
-    margin-top: 20px;
+    margin-top: 50px;
     text-align: center;
     font-family: "Playfair", serif;
     color: rgba(39,33,66,.4);
@@ -130,5 +130,9 @@ font-size: 20px;
 
 .weather-forcast-temprature-min{
 opacity: 0.5;
+  }
+
+  .additional2{
+    margin-top: 50px;
   }
  
