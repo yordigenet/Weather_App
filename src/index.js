@@ -34,18 +34,17 @@ function diplayForcast(){
       <span class="weather-forcast-temprature-max"> 12°</span>
       <span class="weather-forcast-temprature-min"> 14°</span>
       </div>
-    
   </div>`;
   });
   forcastContent = forcastContent + `</div>`;
   forcastElement.innerHTML = forcastContent
-  console.log(forcastContent);
 }
 
 //search engine
 //weather display based on city searched
 
 function showWeather(response) {
+  console.log(response);
 
   let temprature = document.querySelector("#new-temprature");
   let newCity = document.querySelector("#city-name");
@@ -54,22 +53,22 @@ function showWeather(response) {
   let detailinfo = document.querySelector("#moreInfo")
   let icon = document.querySelector("#icon")
   
-  celciusData = Math.round(response.data.main.temp);
+  celciusData = Math.round(response.data.temperature.current);
 
-  temprature.innerHTML = Math.round(response.data.main.temp);
-  newCity.innerHTML = response.data.name;
-  currentHimudity.innerHTML = Math.round(response.data.main.humidity);
+  temprature.innerHTML = Math.round(response.data.temperature.current);
+  newCity.innerHTML = response.data.city;
+  currentHimudity.innerHTML = Math.round(response.data.temperature.humidity);
   currentWind.innerHTML = Math.round(response.data.wind.speed);
-  detailinfo.innerHTML = response.data.weather[0].description;
-  icon.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  detailinfo.innerHTML = response.data.condition.description;
+  icon.setAttribute("src", `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}`);
 }
 
 
 function weatherNew(city){
 
-let apiKey = "bc5ca568ee2d7c71357ca430a3ff8705";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
-axios.get(`${apiUrl}&appid=${apiKey}`).then(showWeather);
+let apiKey = "9e83f4b20abcaf3tc8ob7e37014fe983";
+let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&units=metric`;
+axios.get(`${apiUrl}&key=${apiKey}`).then(showWeather);
 }
 
 function search(event){
