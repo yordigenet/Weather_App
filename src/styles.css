@@ -1,12 +1,12 @@
 body{
-background-color: #e3f6f5; 
+  background: linear-gradient(90.7deg, rgb(255, 253, 218) 1.9%, rgb(246, 210, 255) 39.3%, rgb(152, 222, 254) 64.7%, rgb(251, 255, 210) 100.8%); 
 }
 .card-body{
   padding: 40px;
 }
 
 .cardupdate{
-  background-color: #bae8e8;
+  background-color: rgba(0, 0, 0, .05);
   border-radius: 18px; 
 }
 .text-style {
@@ -16,7 +16,7 @@ background-color: #e3f6f5;
     color: rgba(39,33,66,.4);
   }
 
-strong{
+#humud, #win, .wind, #weather-forcast-temprature{
 color: #a0610f;
   }
 
@@ -32,107 +32,119 @@ color: #a0610f;
 font-size: 20px;
 }
 
-  .main {
-    font-size: 30px;
-    font-family: "Times New Roman", Times, serif;
-    padding: 0;
-    margin: 0;
-  }
+.main {
+  font-family: 'Times New Roman', Times, serif;
+  color: #272142;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 48px;
+  padding: 0;
+  margin: 0;
+}
 
-  .additional {
-    margin-top: 100px;
-  }
-  
-  .additional p {
-    font-size: 20px;
-  }
-  
-  .cardupdate {
-    display: block;
-    margin: 50px auto;
-  }
-  
-  a {
-    text-decoration: none;
-  }
-  
-  form {
-    margin: 10px 30px 30px;
-  }
-  
-  .cityName:focus {
-    outline: none !important;
-    border: 1px solid rgb(105, 141, 240);
-    box-shadow: 10px #719ece;
-  }
+.additional {
+  margin-top: 100px;
+}
 
-  .containerNew{
-    width: 100%;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-  }
+.additional p {
+  font-size: 20px;
+}
 
-  ul {
-    margin: 0;
-    padding: 0 10px 0 10px;
-  }
-  
-  li {
-    font-family: "Playfair", serif;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    font-size: 16px;
-    font-weight: 100;
-    line-height: 19px;
-  }
+.cardupdate {
+  display: block;
+  margin: 50px auto;
+}
 
-  #moreInfo{
-    text-transform: capitalize;
-  }
+a {
+  text-decoration: none;
+}
 
-  .bottom_link{
-    text-align: center;
-    padding-bottom: 10px;
-  }
-  #icon{
-    width: 60px;
-    height: 60px;
-    margin: 0;
-    padding: 0;
-  }
+form {
+  margin: 10px 30px 30px;
+}
 
-  .main .active{
-    color: rgba(39,33,66,.4);
-    cursor: default;
-  }
+.search{
+  background: #885df1;
+  border: 1px solid #885df1;
+}
 
-  .main .active.hover{
-    text-decoration: none;
-  }
 
-  .weather-forcast{
-    margin-top: 50px;
-    text-align: center;
-    font-family: "Playfair", serif;
-    color: rgba(39,33,66,.4);
-  }
 
-  .weather-forcast-day{
-    font-size: 16px;
-  }
+.cityName:focus {
+  outline: none !important;
+  border: 1px solid rgb(105, 141, 240);
+  box-shadow: 10px #719ece;
+}
 
-  .weather-forcast-temprature{
-    font-size: 13px;
-    color: black;
-  }
+.containerNew{
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0 10px 0 10px;
+}
+
+li {
+  font-family: "Playfair", serif;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 100;
+  line-height: 19px;
+}
+
+#moreInfo{
+  text-transform: capitalize;
+}
+
+.bottom_link{
+  text-align: center;
+  padding-bottom: 10px;
+}
+#icon{
+  width: 60px;
+  height: 60px;
+  margin: 0;
+  padding: 0;
+}
+
+.main .active{
+  color: rgba(39,33,66,.4);
+  cursor: default;
+}
+
+.main .active.hover{
+  text-decoration: none;
+}
+
+.weather-forcast{
+  margin-top: 50px;
+  text-align: center;
+  font-family: "Playfair", serif;
+  color: rgba(39,33,66,.4);
+}
+
+.weather-forcast-day{
+  font-size: 16px;
+}
+
+.weather-forcast-temprature{
+  font-size: 13px;
+  color: black;
+}
 
 .weather-forcast-temprature-min{
 opacity: 0.5;
-  }
+}
 
-  .additional2{
-    margin-top: 50px;
-  }
- 
+.additional2{
+  margin-top: 50px;
+}
+a{
+  color: #885df1;
+}
